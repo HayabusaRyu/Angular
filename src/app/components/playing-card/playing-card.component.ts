@@ -6,6 +6,7 @@ import {MonsterTypeProperties} from '../../utils/monster.utils';
   selector: 'app-playing-card',
   imports: [],
   templateUrl: './playing-card.component.html',
+  standalone: true,
   styleUrl: './playing-card.component.css'
 })
 export class PlayingCardComponent {

@@ -11,6 +11,7 @@ import {MonsterService} from '../../services/monster/monster.service';
   selector: 'app-monster',
   imports: [ReactiveFormsModule, PlayingCardComponent],
   templateUrl: './monster.component.html',
+  standalone: true,
   styleUrl: './monster.component.css'
 })
 export class MonsterComponent implements OnInit, OnDestroy{
@@ -63,9 +64,19 @@ export class MonsterComponent implements OnInit, OnDestroy{
     this.formValuesSubscription?.unsubscribe();
   }
 
+  navigateBack(){
+    this.router.navigate(['/home']);
+  }
+
   submit(event: Event){
     event.preventDefault();
-    console.log(this.formGroup.value);
+    if(this.monsterId === -1) {
+      this.monsterService.add(this.monster);
+    } else {
+      this.monster.id = this.monsterId;
+      this.monsterService.update(this.monster);
+    }
+    this.navigateBack();
   }
 
   isFieldValid(name: string){
