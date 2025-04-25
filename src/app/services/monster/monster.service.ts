@@ -23,6 +23,7 @@ export class MonsterService {
     if(monsterData){
       this.monsters = JSON.parse(monsterData).map((monsterJSON: any) => Object.assign(new Monster(), monsterJSON));
       this.currentIndex = Math.max(...this.monsters.map(monster => monster.id))
+      console.log("currentIndex = " + this.currentIndex);
     } else {
       this.init();
       this.save();
@@ -78,10 +79,10 @@ export class MonsterService {
 
   add(monster : Monster): Monster {
     const monsterCopy = monster.copy();
-
+    this.currentIndex++;
     monsterCopy.id = this.currentIndex;
     this.monsters.push(monsterCopy.copy());
-    this.currentIndex++;
+
     this.save();
 
     return monsterCopy;
@@ -90,7 +91,7 @@ export class MonsterService {
   update(monster: Monster): Monster {
     const monsterCopy = monster.copy();
     const monsterIndex = this.monsters.findIndex(originalMonster => originalMonster.id === monster.id);
-    if(monsterIndex){
+    if(monsterIndex != -1){
       this.monsters[monsterIndex] = monsterCopy.copy();
       this.save();
     }

@@ -5,6 +5,7 @@ import {FormsModule} from '@angular/forms';
   selector: 'app-search-bar',
   imports: [FormsModule],
   templateUrl: './search-bar.component.html',
+  standalone: true,
   styleUrl: './search-bar.component.css'
 })
 export class SearchBarComponent {

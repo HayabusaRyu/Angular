@@ -1,19 +1,16 @@
-<app-search-bar [(search)]="search" xmlns="http://www.w3.org/1999/html"/>
+<app-search-bar [(search)]="search"/>
 <div id="card-list">
-  @for (monster of filteredMonsters(); track monster; let i = $index) {
-    <div>
-      Index = {{ i }}
-    </div>
-    <app-playing-card [monster]="monster"/>
+  @for (monster of filteredMonsters(); track monster) {
+    <app-playing-card [monster]="monster" (click)="openMonster(monster)"/>
   } @empty {
-    <div class="center">No Monsters found !</div>
+    <div class="centered">No Monsters found !</div>
   }
 </div>
 
 @if (filteredMonsters().length != 0) {
-  <div class="center">Found {{filteredMonsters().length}} monsters !</div>
+  <div class="centered">Found {{filteredMonsters().length}} monsters !</div>
 }
 
-<div class="center">
-  <button (click)="addMonster()">Add Generic monster</button><br/>
+<div class="centered">
+  <button (click)="addMonster()">Add monster</button><br/>
 </div>
