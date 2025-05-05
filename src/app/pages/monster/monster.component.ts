@@ -9,6 +9,10 @@ import {MonsterService} from '../../services/monster/monster.service';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
+import {MatDialog} from '@angular/material/dialog';
+import {
+  DeleteMonsterConfirmationDialogComponent
+} from '../../components/delete-monster-confirmation-dialog/delete-monster-confirmation-dialog.component';
 
 @Component({
   selector: 'app-monster',
@@ -22,6 +26,7 @@ export class MonsterComponent implements OnInit, OnDestroy{
   private route = inject(ActivatedRoute);
   private fb = inject(FormBuilder);
   private router = inject(Router);
+  private readonly dialog = inject(MatDialog);
 
   private routeSubscription: Subscription | null = null;
 
@@ -80,6 +85,16 @@ export class MonsterComponent implements OnInit, OnDestroy{
       this.monsterService.update(this.monster);
     }
     this.navigateBack();
+  }
+
+  deleteMonster(){
+    const dialogRef = this.dialog.open(DeleteMonsterConfirmationDialogComponent);
+    dialogRef.afterClosed().subscribe(confirmation => {
+      if(confirmation){
+        this.monsterService.delete(this.monsterId);
+        this.navigateBack();
+      }
+    })
   }
 
   isFieldValid(name: string){

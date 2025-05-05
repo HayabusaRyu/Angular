@@ -44,7 +44,11 @@ label {
   width: calc(100% - 340px);
 }
 
-.button-container {
-  display: flex;
-  gap: 10px;
+.button-container.left, .button-container.right {
+  display: inline-block;
+  width: 50%;
+}
+
+.button-container.right {
+  text-align: right;
 }
