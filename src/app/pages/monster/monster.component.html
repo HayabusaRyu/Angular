@@ -4,8 +4,8 @@
 <div class="main">
   <form [formGroup]="formGroup" (submit)="submit($event)">
     <mat-form-field>
-      <mat-label for="name">Name</mat-label>
-      <input matInput id="name" name="name" type="text" formControlName="name"/>
+      <mat-label>Name</mat-label>
+      <input matInput id="name" type="text" formControlName="name"/>
       @if (isFieldValid('name')) {
         <mat-error>This field is required</mat-error>
       }
@@ -18,16 +18,16 @@
       }
     </div>
     <mat-form-field>
-      <mat-label for="type">Type</mat-label>
-      <mat-select id="type" name="type"  formControlName="type">
+      <mat-label >Type</mat-label>
+      <mat-select id="type" formControlName="type">
         @for(type of monsterTypes; track type) {
           <mat-option [value]="type">{{type}}</mat-option>
         }
       </mat-select>
     </mat-form-field>
     <mat-form-field>
-      <mat-label for="hp">HP</mat-label>
-      <input matInput id="hp" name="hp" type="number" formControlName="hp"/>
+      <mat-label>HP</mat-label>
+      <input matInput id="hp" type="number" formControlName="hp"/>
       @if (isFieldValid('hp')) {
         @if (formGroup.get('hp')?.hasError('required')) {
           <mat-error>This field is required</mat-error>
@@ -42,22 +42,22 @@
       }
     </mat-form-field>
     <mat-form-field>
-      <mat-label for="figureCaption">Figure Caption</mat-label>
-      <input matInput id="figureCaption" name="figureCaption" type="text" formControlName="figureCaption"/>
+      <mat-label >Figure Caption</mat-label>
+      <input matInput id="figureCaption" type="text" formControlName="figureCaption"/>
       @if (isFieldValid('figureCaption')) {
         <mat-error>This field is required</mat-error>
       }
     </mat-form-field>
     <mat-form-field>
-      <mat-label for="attackName">Attack Name</mat-label>
-      <input matInput id="attackName" name="attackName" type="text" formControlName="attackName"/>
+      <mat-label >Attack Name</mat-label>
+      <input matInput id="attackName" type="text" formControlName="attackName"/>
       @if (isFieldValid('attackName')) {
         <mat-error>This field is required</mat-error>
       }
     </mat-form-field>
     <mat-form-field>
-      <mat-label for="attackStrength">Attack Strength</mat-label>
-      <input matInput id="attackStrength" name="attackStrength" type="number" formControlName="attackStrength"/>
+      <mat-label >Attack Strength</mat-label>
+      <input matInput id="attackStrength" type="number" formControlName="attackStrength"/>
       @if (isFieldValid('attackStrength')) {
         @if (formGroup.get('attackStrength')?.hasError('required')) {
           <mat-error>This field is required</mat-error>
@@ -71,8 +71,8 @@
       }
     </mat-form-field>
     <mat-form-field>
-      <mat-label for="attackDescription">Attack Description</mat-label>
-      <input matInput id="attackDescription" name="attackDescription" type="text" formControlName="attackDescription"/>
+      <mat-label >Attack Description</mat-label>
+      <input matInput id="attackDescription" type="text" formControlName="attackDescription"/>
       @if (isFieldValid('attackDescription')) {
         <mat-error>This field is required</mat-error>
       }
