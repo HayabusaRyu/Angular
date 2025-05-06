@@ -1,4 +1,4 @@
-import {Component, computed, inject, model} from '@angular/core';
+import {Component, computed, inject, model, signal} from '@angular/core';
 import {PlayingCardComponent} from '../../components/playing-card/playing-card.component';
 import {SearchBarComponent} from '../../components/search-bar/search-bar.component';
 import {MonsterService} from '../../services/monster/monster.service';
@@ -30,6 +30,7 @@ export class MonsterListComponent {
   filteredMonsters = computed(() => {
     return this.monsters()?.filter(monster => monster.name.includes(this.search())) ?? [];
   })
+
 
   addMonster(){
     this.router.navigate(['monster']);

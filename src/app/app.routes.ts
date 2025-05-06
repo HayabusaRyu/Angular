@@ -31,7 +31,8 @@ export const routes: Routes = [
       {
         path:':id',
         component: MonsterComponent,
-        canActivate: [isLoggedInGuard]
+        canActivate: [isLoggedInGuard],
+        runGuardsAndResolvers: 'paramsChange'
       }
     ]
   },

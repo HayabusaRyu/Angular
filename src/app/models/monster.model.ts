@@ -1,9 +1,9 @@
 import {MonsterType} from '../utils/monster.utils';
 import {IMonster} from '../interfaces/monster.interface';
 
-export class Monster implements IMonster {
+export class Monster implements IMonster{
 
-  id: number = -1;
+  id: number | undefined = -1;
   name: string = "My Monster";
   image: string = "/images/pika.jpg";
   type: MonsterType = MonsterType.ELECTRIC;
@@ -19,12 +19,21 @@ export class Monster implements IMonster {
   }
 
   static fromJson(monsterJson: IMonster): Monster {
-    return Object.assign(new Monster(), monsterJson);
+    const monster = new Monster();
+    monster.id = monsterJson.id ?? -1;
+    monster.name = monsterJson.name;
+    monster.image = monsterJson.image;
+    monster.hp = monsterJson.hp;
+    monster.type = monsterJson.type;
+    monster.figureCaption = monsterJson.figureCaption;
+    monster.attackName = monsterJson.attackName;
+    monster.attackStrength = monsterJson.attackStrength;
+    monster.attackDescription = monsterJson.attackDescription;
+    return monster;
   }
 
   toJson(): IMonster {
-    const monsterJson: IMonster = Object.assign({}, this);
-    delete monsterJson.id;
-    return monsterJson;
+    const { id, ...rest } = this; // Exclude id for POST
+    return rest as IMonster;
   }
 }
