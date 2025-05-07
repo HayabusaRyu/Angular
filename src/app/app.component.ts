@@ -3,7 +3,7 @@ import {Component, inject, OnDestroy} from '@angular/core';
 
 import {Router, RouterOutlet} from '@angular/router';
 import {MatToolbar} from '@angular/material/toolbar';
-import {MatIconButton} from '@angular/material/button';
+import {MatButtonModule, MatIconButton} from '@angular/material/button';
 import {MatIcon} from '@angular/material/icon';
 import {LoginService} from './services/login/login.service';
 import {Subscription} from 'rxjs';
@@ -15,6 +15,7 @@ import {Subscription} from 'rxjs';
     RouterOutlet,
     MatToolbar,
     MatIconButton,
+    MatButtonModule,
     MatIcon
   ],
   templateUrl: 'app.component.html',

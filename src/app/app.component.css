@@ -8,3 +8,7 @@ mat-toolbar p {
   flex-grow: 1;
   margin: 0;
 }
+
+.logout{
+  background-color: red !important;
+}
