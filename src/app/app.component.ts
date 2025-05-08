@@ -51,4 +51,8 @@ export class AppComponent implements OnDestroy{
     this.router.navigate(['home'])
   }
 
+  navigateToLight(){
+    this.router.navigate(['light'])
+  }
+
 }

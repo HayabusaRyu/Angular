@@ -1,8 +1,22 @@
 @if(loginService.user()){
   <mat-toolbar>
-    <button mat-icon-button (click)="navigateHome()"><mat-icon>home</mat-icon></button>
-    <p>Welcome {{loginService.user()?.firstName}}  {{loginService.user()?.lastName}}</p>
-    <button mat-flat-button class="logout" (click)="logout()">Logout</button>
+    <!-- Left-aligned items -->
+    <div class="toolbar-left">
+      <button mat-icon-button (click)="navigateHome()">
+        <mat-icon>home</mat-icon>
+      </button>
+      <p>Welcome {{loginService.user()?.firstName}} {{loginService.user()?.lastName}}</p>
+    </div>
+
+    <!-- Centered button -->
+    <div class="toolbar-center">
+      <button mat-flat-button class="light" (click)="navigateToLight()">Light Check</button>
+    </div>
+
+    <!-- Right-aligned items -->
+    <div class="toolbar-right">
+      <button mat-flat-button class="logout" (click)="logout()">Logout</button>
+    </div>
   </mat-toolbar>
 }
 <router-outlet></router-outlet>

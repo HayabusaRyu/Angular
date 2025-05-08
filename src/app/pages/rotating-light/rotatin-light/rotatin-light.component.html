@@ -1,0 +1,12 @@
+<div #checkyBorder class="checkyborder" [class.checked]="isChecked">
+  <input
+    #checkyInput
+    class="checky"
+    type="checkbox"
+    [checked]="isChecked"
+    (change)="toggleAnimation($event)"
+  />
+</div>
+<div>
+  <button mat-button (click)="navigateBack()">Back</button>
+</div>

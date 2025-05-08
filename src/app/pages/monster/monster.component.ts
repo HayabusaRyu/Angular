@@ -62,7 +62,7 @@ export class MonsterComponent implements OnInit, OnDestroy{
 
     this.routeSubscription = this.route.params.pipe(
       switchMap(params => {
-        if (params['id']) {  // Use 'id' instead of 'monster'
+        if (params['id']) {
           this.monsterId = parseInt(params['id'], 10);
           return this.monsterService.get(this.monsterId);
         }

@@ -1,14 +1,34 @@
 mat-toolbar {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   padding: 0 20px;
 }
 
+.toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 16px; /* Space between home icon and welcome text */
+  flex: 1;
+}
+
+.toolbar-center {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+}
+
+.toolbar-right {
+  display: flex;
+  justify-content: flex-end;
+  flex: 1;
+}
+
+/* Keep existing styles for other elements */
 mat-toolbar p {
-  flex-grow: 1;
   margin: 0;
 }
 
-.logout{
+.logout {
   background-color: red !important;
 }
